@@ -10,4 +10,9 @@ public class MainMenu : MonoBehaviour
     {
         SceneManager.LoadSceneAsync("Grid");
     }
+
+    public void QuitGame()
+    {
+        Application.Quit();
+    }
 }
