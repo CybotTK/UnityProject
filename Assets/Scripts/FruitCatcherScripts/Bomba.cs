@@ -5,19 +5,19 @@ using UnityEngine;
 public class Bomba : MonoBehaviour
 {
     main main;
-    Transform tr;
 
     void Start()
     {
-        tr = GetComponent<Transform>();
         main = GameObject.Find("scripts").GetComponent<main>();
     }
 
-    void FixedUpdate()
+    private void FixedUpdate()
     {
-        tr.position -= new Vector3(0f, 0.12f, 0f);
+        if (main.GameOver) return; // Nu continuăm dacă jocul este deja încheiat
 
-        if (tr.position.y < -7f)
+        transform.position -= new Vector3(0f, 0.12f, 0f);
+
+        if (transform.position.y < -7f)
         {
             Destroy(this.gameObject);
         }
@@ -25,11 +25,19 @@ public class Bomba : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.name == "basket")
+        if (main.GameOver) return; // Dacă e deja GameOver, nu face nimic
+
+        if (collision.gameObject.name == "cyanChicken")
         {
+            main.EndGame("Red Chicken");
             Destroy(this.gameObject);
             Destroy(collision.gameObject);
-            main.GameOverMenu();
+        }
+        else if (collision.gameObject.name == "redChickenFlip")
+        {
+            main.EndGame("Cyan Chicken");
+            Destroy(this.gameObject);
+            Destroy(collision.gameObject);
         }
     }
 }

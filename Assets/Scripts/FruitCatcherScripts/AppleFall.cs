@@ -25,10 +25,16 @@ public class AppleFall : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.gameObject.name == "basket")
+        if(collision.gameObject.name == "cyanChicken")
         {
             Destroy(this.gameObject);
-            main.AddScore();
+            
+        }
+
+        if(collision.gameObject.name == "redChickenFlip")
+        {
+            Destroy(this.gameObject);
+            
         }
     }
 }
