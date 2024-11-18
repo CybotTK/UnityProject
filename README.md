@@ -6,4 +6,4 @@
 
 ## Cum dorim să primim feedback?
 
-Pentru feedback, vă rugăm să ne contactați la adresa de email: bobic.teona20@gmail.com
+Pentru feedback, vă rugăm să ne contactați la adresa de email: bobic.teona20@gmail.com sau stancilaionutmarian@gmail.com
