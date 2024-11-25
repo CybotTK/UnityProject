@@ -14,6 +14,15 @@ public class Player2 : MonoBehaviour
     private float verticalVelocity = 0f;
     private float originalY;
 
+    //sprite variables
+    private SpriteRenderer spriteRenderer;
+    public Sprite[] sprites; //idle and walk
+    private int spriteIndex;
+    private void Awake()
+    {
+        spriteRenderer = GetComponent<SpriteRenderer>();
+    }
+
     private void Start()
     {
         tr = GetComponent<Transform>();
@@ -25,12 +34,16 @@ public class Player2 : MonoBehaviour
     {
         if (Input.GetKey("right") && tr.position.x < 4f)
         {
-            tr.position += new Vector3(0.2f, 0, 0);
+            tr.position += new Vector3(0.1f, 0, 0);
+            spriteRenderer.flipX = false;
+            AnimateSprite();
         }
 
         if (Input.GetKey("left") && tr.position.x > -4f)
         {
-            tr.position += new Vector3(-0.2f, 0, 0);
+            tr.position += new Vector3(-0.1f, 0, 0); 
+            spriteRenderer.flipX = true;
+            AnimateSprite();
         }
 
         if (Input.GetKeyDown(KeyCode.UpArrow) && !isJumping)
@@ -66,5 +79,18 @@ public class Player2 : MonoBehaviour
             Destroy(GameObject.Find("cyanChicken"));
            
         }
+    }
+
+    //Animation
+    private void AnimateSprite()
+    {
+        spriteIndex++;
+
+        if (spriteIndex >= sprites.Length)
+        {
+            spriteIndex = 0;
+        }
+
+        spriteRenderer.sprite = sprites[spriteIndex];
     }
 }
