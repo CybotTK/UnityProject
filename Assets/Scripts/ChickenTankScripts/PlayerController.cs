@@ -64,6 +64,10 @@ public class PlayerController : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        if (!isAlive) return;
+        Debug.Log("Collision detected with: " + collision.gameObject.name);
+
+
         int fishPoints = 0;
         int fishLevel = 0;
 
