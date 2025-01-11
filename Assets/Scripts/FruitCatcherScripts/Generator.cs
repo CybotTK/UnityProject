@@ -32,9 +32,9 @@ public class Generator : MonoBehaviour
 
                 if (sansa <= 50)
                     Instantiate(gm[0], new Vector3(posX, 6.0f, 0.1f), Quaternion.identity); // Obiect 1
-                else if (sansa <= 90)
-                    Instantiate(gm[1], new Vector3(posX, 6.0f, 0.1f), Quaternion.identity); // Obiect 2
                 else if (sansa <= 70)
+                    Instantiate(gm[1], new Vector3(posX, 6.0f, 0.1f), Quaternion.identity); // Obiect 2
+                else if (sansa <= 90)
                     Instantiate(gm[2], new Vector3(posX, 6.0f, 0.1f), Quaternion.identity); // Obiect 3
                 else
                     Instantiate(gm[3], new Vector3(posX, 6.0f, 0.1f), Quaternion.identity); // Obiect 4
