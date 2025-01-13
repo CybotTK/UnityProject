@@ -7,6 +7,16 @@ TagManager:
   - RedChickenPlayer
   - CyanChickenPlayer
   - Obstacle
+  - CyanSegment
+  - RedSegment
+  - Paddle
+  - Ball
+  - Food
+  - Ground
+  - Camera0
+  - Camera1
+  - Border
+  - FinishBlock
   layers:
   - Default
   - TransparentFX
@@ -15,10 +25,10 @@ TagManager:
   - Water
   - UI
   - 
+  - Ground
   - 
-  - 
-  - 
-  - 
+  - Camera0
+  - Camera1
   - 
   - 
   - 
