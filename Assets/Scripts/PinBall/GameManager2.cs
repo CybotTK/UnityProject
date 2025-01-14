@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class PinBallGameManager : MonoBehaviour   
+public class PinBallGameManager2 : MonoBehaviour   
 {
     [SerializeField]
-    GameObject ball,scoreText;
+    GameObject ball, scoreText;
 
     int score;
 
@@ -19,9 +19,9 @@ public class PinBallGameManager : MonoBehaviour
     public int multiplier;
 
     bool canPlay;
-
-    public static PinBallGameManager instance;
     public GameManagerGlobal gameManager;
+
+    public static PinBallGameManager2 instance;
 
     private void Awake()
     {
@@ -45,7 +45,7 @@ public class PinBallGameManager : MonoBehaviour
     private void Update()
     {
         if (!canPlay) return;
-        if(Input.GetKey(KeyCode.A))
+        if(Input.GetKey(KeyCode.J))
         {
             left.AddTorque(25f);
         }
@@ -53,7 +53,7 @@ public class PinBallGameManager : MonoBehaviour
         {
             left.AddTorque(-20f);
         }
-        if (Input.GetKey(KeyCode.D))
+        if (Input.GetKey(KeyCode.L))
         {
             right.AddTorque(-25f);
         }
@@ -78,7 +78,7 @@ public class PinBallGameManager : MonoBehaviour
 
     public void GameEnd()
     {
-        gameManager.OnBallDeath("Ball1");
+        gameManager.OnBallDeath("Ball2");
         Time.timeScale = 0;
     }
 

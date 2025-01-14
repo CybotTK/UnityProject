@@ -2,33 +2,32 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PinBall : MonoBehaviour
+public class PinBall2 : MonoBehaviour
 {
-    
     private void OnCollisionEnter2D(Collision2D collision)
     {
-
         string tag = collision.gameObject.tag;
         switch(tag)
         {
             case "Dead":
-                PinBallGameManager.instance.GameEnd();
+                PinBallGameManager2.instance.GameEnd();
+                
                 break;
 
             case "Bouncer":
-                PinBallGameManager.instance.UpdateScore(10, 1);
+                PinBallGameManager2.instance.UpdateScore(10, 1);
                 break;
 
             case "Point":
-                PinBallGameManager.instance.UpdateScore(20, 1);
+                PinBallGameManager2.instance.UpdateScore(20, 1);
                 break;
 
             case "Side":
-                PinBallGameManager.instance.UpdateScore(10, 0);
+                PinBallGameManager2.instance.UpdateScore(10, 0);
                 break;
 
             case "Flipper":
-                PinBallGameManager.instance.multiplier = 1;
+                PinBallGameManager2.instance.multiplier = 1;
                 break;
 
             default:
