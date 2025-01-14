@@ -200,7 +200,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 7143242046994453112}
         m_TargetAssemblyTypeName: Cell, Assembly-CSharp
-        m_MethodName: Fill
+        m_MethodName: LoadMinigame
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -228,6 +228,18 @@ MonoBehaviour:
   cyanChickenSprite: {fileID: 21300000, guid: 344ba65895f29034b93adbd551a49d2a, type: 3}
   mButton: {fileID: 2079820642279803698}
   mMain: {fileID: 0}
+  MinigameScenes:
+  - FruitCatcher
+  - FIshTank
+  - FlappyBird
+  - Pong
+  - Shooter
+  - Snake
+  - BirdRunner
+  - FruitCatcher
+  - FruitCatcher
+  minigameIndex: 0
+  index: 0
 --- !u!1 &8051072681012203490
 GameObject:
   m_ObjectHideFlags: 0

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Manager : MonoBehaviour
 {
@@ -54,6 +55,16 @@ public class Manager : MonoBehaviour
         Winner();
         ResetPosition();
     }
+    public void LoadSceneWithDelay(string sceneName, float delay)
+    {
+        StartCoroutine(WaitAndLoadScene(sceneName, delay));
+    }
+
+    private IEnumerator WaitAndLoadScene(string sceneName, float delay)
+    {
+        yield return new WaitForSeconds(delay); // Wait for the specified time
+        SceneManager.LoadScene(sceneName);      // Load the target scene
+    }
 
     private void Winner()
     {
@@ -62,12 +73,16 @@ public class Manager : MonoBehaviour
             gameActive = false;
             winnerText.text = "Winner: Player 1!";
             winnerText.gameObject.SetActive(true); // Afișează textul câștigătorului
+            GameManagerTTT.instance.AddWinningPlayer("Red");
+            LoadSceneWithDelay("Grid", 1.0f);
         }
         else if (player2Score == 5)
         {
             gameActive = false;
             winnerText.text = "Winner: Player 2!";
             winnerText.gameObject.SetActive(true); // Afișează textul câștigătorului
+            GameManagerTTT.instance.AddWinningPlayer("Cyan");
+            LoadSceneWithDelay("Grid", 1.0f);
         }
     }
 

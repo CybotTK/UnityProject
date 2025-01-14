@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
 using TMPro; 
 using UnityEngine.SceneManagement; // pentru a reîncărca scena
 
@@ -74,6 +76,16 @@ public class GameManager : MonoBehaviour
             CompareScores();
         }
     }
+    public void LoadSceneWithDelay(string sceneName, float delay)
+    {
+        StartCoroutine(WaitAndLoadScene(sceneName, delay));
+    }
+
+    private IEnumerator WaitAndLoadScene(string sceneName, float delay)
+    {
+        yield return new WaitForSeconds(delay); // Wait for the specified time
+        SceneManager.LoadScene(sceneName);      // Load the target scene
+    }
 
     void CompareScores()
     {
@@ -81,10 +93,14 @@ public class GameManager : MonoBehaviour
         if (player1FinalScore > player2FinalScore)
         {
             winnerText.text = "Player 1 Wins!";
+            GameManagerTTT.instance.AddWinningPlayer("Cyan");
+            LoadSceneWithDelay("Grid", 1.0f);
         }
         else if (player2FinalScore > player1FinalScore)
         {
-            winnerText.text = "Player 2 Wins!";
+            winnerText.text = "Player 2 Wins!"; 
+            GameManagerTTT.instance.AddWinningPlayer("Red");
+            LoadSceneWithDelay("Grid", 1.0f);
         }
         else
         {
@@ -93,7 +109,6 @@ public class GameManager : MonoBehaviour
         }
 
         winnerText.gameObject.SetActive(true); 
-        Time.timeScale = 0f; // Oprește jocul
     }
 
     void Update()

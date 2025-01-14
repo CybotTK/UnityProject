@@ -73,22 +73,28 @@ public class SnakeCyan : MonoBehaviour
 
     void PlayerInput()
     {
-        if (Input.GetKeyDown(KeyCode.W))
+        if (Input.GetKeyDown(KeyCode.UpArrow))
         {
             direction = Vector2.up;
             transform.rotation = Quaternion.Euler(0, 0, 0);
+            if (Input.GetKeyDown(KeyCode.DownArrow))
+            {
+                // blochez tasta de jos
+                direction = Vector2.down;
+
+            }
         }
-        if (Input.GetKeyDown(KeyCode.S))
+        if (Input.GetKeyDown(KeyCode.DownArrow))
         {
             direction = Vector2.down;
             transform.rotation = Quaternion.Euler(0, 0, 180);
         }
-        if (Input.GetKeyDown(KeyCode.A))
+        if (Input.GetKeyDown(KeyCode.LeftArrow))
         {
             direction = Vector2.left;
             transform.rotation = Quaternion.Euler(0, 0, 90);
         }
-        if (Input.GetKeyDown(KeyCode.D))
+        if (Input.GetKeyDown(KeyCode.RightArrow))
         {
             direction = Vector2.right;
             transform.rotation = Quaternion.Euler(0, 0, -90);
@@ -127,7 +133,6 @@ public class SnakeCyan : MonoBehaviour
     {
         if (other.tag == "Obstacle")
         {
-            Time.timeScale = 0;
             Debug.Log("SnakeCyan a pierdut, a lovit un obstacol!");
             if (gameManager != null)
             {
@@ -136,7 +141,6 @@ public class SnakeCyan : MonoBehaviour
         }
         else if (other.tag == "RedSegment")
         {
-            Time.timeScale = 0;
             Debug.Log("SnakeCyan a pierdut, a lovit SnakeRed!");
             if (gameManager != null)
             {

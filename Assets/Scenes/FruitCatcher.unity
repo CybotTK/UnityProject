@@ -271,7 +271,7 @@ GameObject:
   - component: {fileID: 586403068}
   - component: {fileID: 586403070}
   - component: {fileID: 586403072}
-  - component: {fileID: 586403071}
+  - component: {fileID: 586403073}
   m_Layer: 0
   m_Name: redChickenFlip
   m_TagString: Untagged
@@ -322,7 +322,7 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 0fbe6e5101b818442a5e69263b171df3, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 1
+  m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
   m_Size: {x: 1.6, y: 1.6}
@@ -340,7 +340,7 @@ Transform:
   m_GameObject: {fileID: 586403067}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4.72, y: -3.5, z: 0}
+  m_LocalPosition: {x: -4.95, y: -3.5, z: 0}
   m_LocalScale: {x: 1.3, y: 1.3, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -391,23 +391,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.8255671, y: 1.1299934}
   m_EdgeRadius: 0
---- !u!114 &586403071
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 586403067}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2451dad1c0c3cbf40b2c39a267e93a99, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  jumpHeight: 3
-  jumpSpeed: 5
-  sprites:
-  - {fileID: 21300000, guid: 0fbe6e5101b818442a5e69263b171df3, type: 3}
-  - {fileID: 21300000, guid: 9cad166283401fe4c90e1f0af914a884, type: 3}
 --- !u!50 &586403072
 Rigidbody2D:
   serializedVersion: 4
@@ -435,6 +418,23 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 7
+--- !u!114 &586403073
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 586403067}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 231b11a62467b4045ac5946cbb4a38b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  jumpHeight: 3
+  jumpSpeed: 5
+  sprites:
+  - {fileID: 21300000, guid: 0fbe6e5101b818442a5e69263b171df3, type: 3}
+  - {fileID: 21300000, guid: 9cad166283401fe4c90e1f0af914a884, type: 3}
 --- !u!1 &842987618
 GameObject:
   m_ObjectHideFlags: 0
@@ -649,7 +649,7 @@ GameObject:
   - component: {fileID: 1689150479}
   - component: {fileID: 1689150481}
   - component: {fileID: 1689150483}
-  - component: {fileID: 1689150482}
+  - component: {fileID: 1689150484}
   m_Layer: 0
   m_Name: cyanChicken
   m_TagString: Untagged
@@ -700,7 +700,7 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 344ba65895f29034b93adbd551a49d2a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 0
+  m_FlipX: 1
   m_FlipY: 0
   m_DrawMode: 0
   m_Size: {x: 1.6, y: 1.6}
@@ -718,7 +718,7 @@ Transform:
   m_GameObject: {fileID: 1689150478}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.42, y: -3.5, z: 0}
+  m_LocalPosition: {x: 4.53, y: -3.5, z: 0}
   m_LocalScale: {x: 1.3, y: 1.3, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -769,23 +769,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.9356848, y: 1.193417}
   m_EdgeRadius: 0
---- !u!114 &1689150482
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1689150478}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 231b11a62467b4045ac5946cbb4a38b4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  jumpHeight: 3
-  jumpSpeed: 5
-  sprites:
-  - {fileID: 21300000, guid: 344ba65895f29034b93adbd551a49d2a, type: 3}
-  - {fileID: 21300000, guid: 307e06b754416c144afb523b624989cc, type: 3}
 --- !u!50 &1689150483
 Rigidbody2D:
   serializedVersion: 4
@@ -813,6 +796,23 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 7
+--- !u!114 &1689150484
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1689150478}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2451dad1c0c3cbf40b2c39a267e93a99, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  jumpHeight: 3
+  jumpSpeed: 5
+  sprites:
+  - {fileID: 21300000, guid: 344ba65895f29034b93adbd551a49d2a, type: 3}
+  - {fileID: 21300000, guid: 307e06b754416c144afb523b624989cc, type: 3}
 --- !u!1 &1811481226
 GameObject:
   m_ObjectHideFlags: 0

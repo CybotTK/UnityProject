@@ -17,4 +17,20 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/FruitCatcher.unity
     guid: 9099d8b7e1d44ed4da095566958dca9c
-  m_configObjects: {}
+  - enabled: 1
+    path: Assets/Scenes/FishTank.unity
+    guid: 4b55a05486c02294cb104a456cd67c68
+  - enabled: 1
+    path: Assets/Scenes/Pong.unity
+    guid: e8cf18dd8c513ae469f9adc672544628
+  - enabled: 1
+    path: Assets/Scenes/Shooter.unity
+    guid: de08be7d6bb4af344badfb9d0670aa3a
+  - enabled: 1
+    path: Assets/Scenes/Snake.unity
+    guid: 30c9402b9add8384680e6f4318122a69
+  - enabled: 1
+    path: Assets/BirdRunner/BirdRunner.unity
+    guid: 014205a89c3847449bceb223f53848d8
+  m_configObjects:
+    com.unity.input.settings: {fileID: 11400000, guid: 19d5168f4003cbe478e4e8a56557cca3, type: 2}

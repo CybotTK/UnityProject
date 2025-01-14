@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Drawing;
 using UnityEngine;
 
 public class Board : MonoBehaviour
@@ -7,16 +8,36 @@ public class Board : MonoBehaviour
 
     public GameObject mCellPrefab;
 
-    private Cell[] mCells = new Cell[9];
+    public Cell[] mCells = new Cell[9];
 
-    public void Build(TicTacToeMain main)
+    public void Build(TicTacToeMain ticTacToeMain)
     {
-        for(int i = 0; i<=8; i++)
+        for (int i = 0; i <= 8; i++)
         {
             GameObject newCell = Instantiate(mCellPrefab, transform);
 
             mCells[i] = newCell.GetComponent<Cell>();
-            mCells[i].mMain = main;
+            mCells[i].mMain = ticTacToeMain;
+            mCells[i].index = i;
+            mCells[i].minigameIndex = i;
+        }
+
+        if (GameManagerTTT.instance.grid == null || GameManagerTTT.instance.grid.Length != 9)
+        {
+            Debug.LogError("Grid is not properly initialized.");
+            return; // Exit if grid is not initialized
+        }
+
+        for (int i = 0; i < 9; i++)
+        {
+            if (mCells[i] != null)
+            {
+                mCells[i].Fill(GameManagerTTT.instance.grid[i]);
+            }
+            else
+            {
+                Debug.LogError($"Cell {i} is null.");
+            }
         }
     }
 
@@ -24,13 +45,21 @@ public class Board : MonoBehaviour
     {
         foreach(Cell cell in mCells)
         {
-            cell.mLabel.text = "";
-
+            cell.mLabel.text = ""; 
+            UnityEngine.Color color = cell.targetImage.color;
+            color.a = 0;
+            cell.targetImage.color = color;
+            cell.targetImage = null;
             cell.mButton.interactable = true;
+        }
+
+        for (int i = 0; i < 9; i++)
+        {
+            GameManagerTTT.instance.grid[i]="";
         }
     }
 
-    public bool CheckForWinner()
+    public string CheckForWinner()
     {
         int i = 0; 
 
@@ -43,7 +72,7 @@ public class Board : MonoBehaviour
             if (!CheckValues(i, i + 2))
                 continue;
 
-            return true;
+            return mCells[i].mLabel.text;
         }
 
         //vertical
@@ -55,18 +84,18 @@ public class Board : MonoBehaviour
             if (!CheckValues(i, i + 6))
                 continue;
 
-            return true;
+            return mCells[i].mLabel.text;
         }
 
         //diagonala stanga
         if(CheckValues(0,4) && CheckValues(0,8))
-            return true;
+            return mCells[0].mLabel.text;
 
         //diagonala dreapta
         if (CheckValues(2, 4) && CheckValues(2, 6))
-            return true;
+            return mCells[2].mLabel.text;
 
-        return false;
+        return "noWinner";
     }
 
     private bool CheckValues(int firstIndex, int secondIndex)

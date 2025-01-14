@@ -1,6 +1,8 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class SnakeGameManager : MonoBehaviour
 {
@@ -59,6 +61,17 @@ public class SnakeGameManager : MonoBehaviour
     {
         winnerText.text = $"{winner} a câștigat!";
         winnerText.gameObject.SetActive(true);
+        if (winner == "SnakeCyan")
+        {
+            Debug.Log("Instance = Cyan");
+            GameManagerTTT.instance.AddWinningPlayer("Cyan");
+        }
+        else
+        {
+            Debug.Log("Instance = Red");
+            GameManagerTTT.instance.AddWinningPlayer("Red");
+        }
+        SceneManager.LoadScene("Grid");
     }
 
 }

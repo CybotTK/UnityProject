@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.SceneManagement;
 
 public class HealthController : MonoBehaviour
 {
@@ -86,20 +87,31 @@ public class HealthController : MonoBehaviour
             _currentHealth = _maximumHealth;
         }
     }
+    public void LoadSceneWithDelay(string sceneName, float delay)
+    {
+        StartCoroutine(WaitAndLoadScene(sceneName, delay));
+    }
+
+    private IEnumerator WaitAndLoadScene(string sceneName, float delay)
+    {
+        yield return new WaitForSeconds(delay); // Wait for the specified time
+        SceneManager.LoadScene(sceneName);      // Load the target scene
+    }
 
     private void StopGameOnDeath()
     {
         if (IsPlayer)
         {
             Debug.Log("Game Over! Player has died.");
-            Time.timeScale = 0;
-
 
             if (gameOverPanel != null)
             {
                 string winner = playerName == "Gaina rosie" ? "Gaina albastra" : "Gaina rosie";
                 gameOverPanel.SetActive(true);
                 winnerText.text = $"{winner} a câștigat !";
+                if (winner == "Gaina albastra") GameManagerTTT.instance.AddWinningPlayer("Cyan");
+                else GameManagerTTT.instance.AddWinningPlayer("Red");
+                LoadSceneWithDelay("Grid", 1.0f);
             }
         }
     }

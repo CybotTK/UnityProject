@@ -5,6 +5,7 @@ using System.Threading;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class BirdMovement : MonoBehaviour {
@@ -36,6 +37,7 @@ public class BirdMovement : MonoBehaviour {
 	public KeyCode playerRight;
 	public KeyCode playerJump;
 
+	[SerializeField]
 	private uint lapsDone = 1;
 	public TextMeshProUGUI lapsUI;
 
@@ -167,8 +169,11 @@ public class BirdMovement : MonoBehaviour {
 			lapsUI.text = "Lap " + Mathf.Clamp(lapsDone, 1, 3).ToString();
 			if (lapsDone == 4) {
 				Application.Quit();
-				Debug.Log(gameObject.name + " wins!");
-			}
+                Debug.Log(gameObject.name + " wins!");
+                if (gameObject.name == "Birb 1") GameManagerTTT.instance.AddWinningPlayer("Cyan");
+                else GameManagerTTT.instance.AddWinningPlayer("Red");
+                SceneManager.LoadScene("Grid");
+            }
 		}
 	}
 

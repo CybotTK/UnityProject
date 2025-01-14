@@ -10,25 +10,17 @@ public class TicTacToeMain : MonoBehaviour
     public GameObject mWinner;
 
     private bool mXTurn = true;
-    private int mTurnCount = 0;
 
-    void Awake()
+    void Start()
     {
         mBoard.Build(this);
     }
 
     public void Switch ()
     {
-        mTurnCount++;
+        string hasWinner = mBoard.CheckForWinner();
 
-        bool hasWinner = mBoard.CheckForWinner();
-
-        /*
-        if (hasWinner)
-            print("Winner!");
-        */
-
-        if (hasWinner || mTurnCount == 9) 
+        if (hasWinner != "noWinner" || GameManagerTTT.instance.mTurnCount == 9) 
         {
             //sfarsit joc
             StartCoroutine(EndGame(hasWinner));
@@ -52,14 +44,14 @@ public class TicTacToeMain : MonoBehaviour
         }
     }
 
-    private IEnumerator EndGame(bool hasWinner)
+    private IEnumerator EndGame(string hasWinner)
     {
 
         TextMeshProUGUI winnerLabel = mWinner.GetComponentInChildren<TextMeshProUGUI>();
 
-        if(hasWinner)
+        if(hasWinner != "noWinner")
         {
-            winnerLabel.text = GetTurnCharacter() + " " + "Won!";
+            winnerLabel.text = hasWinner + " " + "Won!";
         }
         else
         {
@@ -72,7 +64,7 @@ public class TicTacToeMain : MonoBehaviour
         yield return wait;
 
         mBoard.Reset();
-        mTurnCount = 0;
+        GameManagerTTT.instance.mTurnCount = 0;
 
         mWinner.SetActive(false);
     }
