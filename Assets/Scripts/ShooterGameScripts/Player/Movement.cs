@@ -20,6 +20,7 @@ public class Movement : MonoBehaviour
 
     private void Awake()
     {
+        Time.timeScale = 1f;
         _rigidbody = GetComponent<Rigidbody2D>();
         _camera = Camera.main;
     }
