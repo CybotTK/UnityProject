@@ -13,16 +13,9 @@ public class FlappyBirdGameManager : MonoBehaviour
 
     }
 
-    public void Pause()
-    {
-        Time.timeScale = 0f;
-    }
-
     public void GameOver()
     {
         gameOver.SetActive(true);
-
-        Pause();
     }
 
     private void Start()

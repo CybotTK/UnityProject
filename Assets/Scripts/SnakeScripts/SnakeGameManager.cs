@@ -56,6 +56,18 @@ public class SnakeGameManager : MonoBehaviour
         scoreRedText.text = snakeRed.GameScore().ToString();
         scoreBlueText.text =snakeCyan.GameScore().ToString();
     }
+    public void ChangeScene(string sceneName)
+    {
+        Time.timeScale = 0f; // Pause the game
+        StartCoroutine(TransitionToScene(sceneName));
+    }
+
+    private IEnumerator TransitionToScene(string sceneName)
+    {
+        yield return new WaitForSecondsRealtime(1f); // Wait for 1 real-time second
+        Time.timeScale = 1f; // Reset time scale before changing the scene
+        SceneManager.LoadScene(sceneName);
+    }
 
     public void DisplayWinner(string winner)
     {
@@ -71,7 +83,7 @@ public class SnakeGameManager : MonoBehaviour
             Debug.Log("Instance = Red");
             GameManagerTTT.instance.AddWinningPlayer("Red");
         }
-        SceneManager.LoadScene("Grid");
+        ChangeScene("Grid");
     }
 
 }

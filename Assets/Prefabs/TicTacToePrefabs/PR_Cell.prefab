@@ -236,8 +236,8 @@ MonoBehaviour:
   - Shooter
   - Snake
   - BirdRunner
-  - FruitCatcher
-  - FruitCatcher
+  - PinBall
+  - Bomber
   minigameIndex: 0
   index: 0
 --- !u!1 &8051072681012203490

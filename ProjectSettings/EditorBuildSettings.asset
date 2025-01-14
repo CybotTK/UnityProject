@@ -32,5 +32,11 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/BirdRunner/BirdRunner.unity
     guid: 014205a89c3847449bceb223f53848d8
+  - enabled: 1
+    path: Assets/Scenes/PinBall.unity
+    guid: 26eb36daa9946d14f82789c268079e06
+  - enabled: 1
+    path: Assets/Scenes/FlappyBird.unity
+    guid: fef7f3b713b1a0b47882f3f512fe2179
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: 19d5168f4003cbe478e4e8a56557cca3, type: 2}

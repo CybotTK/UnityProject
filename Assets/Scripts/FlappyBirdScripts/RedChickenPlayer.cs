@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class RedChickenScript : MonoBehaviour
 {
@@ -33,6 +34,18 @@ public class RedChickenScript : MonoBehaviour
         direction.y += gravity * Time.deltaTime;
         transform.position += direction * Time.deltaTime;
     }
+    public void ChangeScene(string sceneName)
+    {
+        Time.timeScale = 0f; // Pause the game
+        StartCoroutine(TransitionToScene(sceneName));
+    }
+
+    private IEnumerator TransitionToScene(string sceneName)
+    {
+        yield return new WaitForSecondsRealtime(1f); // Wait for 1 real-time second
+        Time.timeScale = 1f; // Reset time scale before changing the scene
+        SceneManager.LoadScene(sceneName);
+    }
 
     //Animation
     private void AnimateSprite()
@@ -52,6 +65,8 @@ public class RedChickenScript : MonoBehaviour
         if (otherCollider.gameObject.tag == "Obstacle")
         {
             FindObjectOfType<FlappyBirdGameManager>().GameOver(); // super performance heavy maybe we use something else if we have perf issues
+            GameManagerTTT.instance.AddWinningPlayer("Cyan");
+            ChangeScene("Grid");
         }
     }
 }

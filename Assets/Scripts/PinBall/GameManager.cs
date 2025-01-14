@@ -79,7 +79,6 @@ public class PinBallGameManager : MonoBehaviour
     public void GameEnd()
     {
         gameManager.OnBallDeath("Ball1");
-        Time.timeScale = 0;
     }
 
     public void GameStart()
