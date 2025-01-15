@@ -237,7 +237,7 @@ MonoBehaviour:
   - Snake
   - BirdRunner
   - PinBall
-  - Bomber
+  - BomberMan
   minigameIndex: 0
   index: 0
 --- !u!1 &8051072681012203490

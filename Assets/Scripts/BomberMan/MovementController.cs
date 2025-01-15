@@ -21,6 +21,7 @@ public class MovementController : MonoBehaviour
 
     private void Awake()
     {
+        Time.timeScale = 1f;
         rigidbody = GetComponent<Rigidbody2D>();
         activeSpriteRenderer = spriteRendererDown;
     }

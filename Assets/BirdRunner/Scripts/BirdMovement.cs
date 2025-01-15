@@ -54,8 +54,8 @@ public class BirdMovement : MonoBehaviour {
 
 	// Start is called before the first frame update
 	void Start() {
-
-	}
+        Time.timeScale = 1f;
+    }
 
 	private void FixedUpdate() {
 		var rigidbody = GetComponent<Rigidbody>();

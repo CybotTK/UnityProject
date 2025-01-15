@@ -3706,7 +3706,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inputKey: 303
   bombPrefab: {fileID: 2323776648834087524, guid: 7299b4eff0bee644e838e271d178e97a, type: 3}
-  bombFuseTime: 3
+  bombFuseTime: 1.5
   bombAmount: 1
   explosionPrefab: {fileID: 6525407917701928291, guid: 6e765233e3a6deb459a396cdcecc501d, type: 3}
   explosionLayerMask:
@@ -3956,7 +3956,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inputKey: 32
   bombPrefab: {fileID: 2323776648834087524, guid: 7299b4eff0bee644e838e271d178e97a, type: 3}
-  bombFuseTime: 3
+  bombFuseTime: 1.5
   bombAmount: 1
   explosionPrefab: {fileID: 6525407917701928291, guid: 6e765233e3a6deb459a396cdcecc501d, type: 3}
   explosionLayerMask:
